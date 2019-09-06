@@ -1,0 +1,38 @@
+config:
+  target: 'http://192.168.20.186:8000'
+  phases:
+    - duration: 10
+      arrivalRate: 1
+  variables:
+       id:
+        - "1"
+        - "2"
+        - "3"
+        - "4"
+        - "5"
+        - "6"
+        - "7"
+        - "8"
+        - "9"
+        - "10"
+        - "11"
+        - "12"
+        - "13"
+        - "14"
+        - "15"
+        - "16"
+        - "17"
+        - "18"
+        - "19"
+scenarios:
+  - flow:
+    - log: "{{ id }}"
+    - post:
+        url: "/api/test/result/1"
+        headers:
+          Authenticate-Token: "nM9kuIvBgutND9ANgYF3vaLCLGNcoe27xAmDhv1qY72BLeICYX"
+          Content-Type: "application/json"
+        formData:
+            result: '{"commentList":[],"equipmentData":[],"executionId":"{{ id }}/1/1567585970007","resultCode":1,"stepList":[{"comment":"","commentUserId":0,"groups":[],"identifier":"sub1_tc0","info":[],"ppFile":"../../../workspace/data/FLIRT3_BW1_EMU5/1429 036/PP/PP_350_1/PP_350_1_1_Vorbereitung{2.3}_Seriennummer_5{2.0}_2019.09.04_10.32.35.xlsx","reportValueData":[{"interval":"","name":"Seriennummer der T..rsteuerung A-Wagen links","unit":"","value":"1"},{"interval":"","name":"Seriennummer der T..rsteuerung A-Wagen rechts","unit":"","value":"1"},{"interval":"","name":"Seriennummer der T..rsteuerung B-Wagen links","unit":"","value":"1"},{"interval":"","name":"Seriennummer der T..rsteuerung B-Wagen rechts","unit":"","value":"1"},{"interval":"","name":"Seriennummer der T..rsteuerung C-Wagen links","unit":"","value":"1"},{"interval":"","name":"Seriennummer der T..rsteuerung C-Wagen rechts","unit":"","value":"1"},{"interval":"","name":"Seriennummer der T..rsteuerung D-Wagen links","unit":"","value":"1"},{"interval":"","name":"Seriennummer der T..rsteuerung D-Wagen rechts","unit":"","value":"1"},{"interval":"","name":"Seriennummer der T..rsteuerung E-Wagen links","unit":"","value":"1"},{"interval":"","name":"Seriennummer der T..rsteuerung E-Wagen rechts","unit":"","value":"1"}],"resultCode":1,"sortIndex":0,"submoduleId":1,"testCase":"9.1.1.1 Seriennummer","testDate":"2019-09-04T08:32:50.000Z","userId":1,"vehicleRelease":"A005"}],"testDate":"2019-09-04T08:32:50.000Z","vehicleId":{{ id }} }'
+            filelist: "test"      
+

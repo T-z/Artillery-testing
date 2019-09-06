@@ -1,0 +1,46 @@
+config:
+  target: 'http://192.168.20.186:8000'
+  phases:
+    - duration: 10
+      arrivalRate: 1
+  payload:
+      path: "equipments.csv"
+      fields:
+        - "name"
+        - "accuracy"
+        - "calibrationDate"
+        - "createDate" 
+        - "description"
+        - "interval" 
+        - "location" 
+        - "manufacturer" 
+        - "modifyDate" 
+        - "number"
+        - "type" 
+        - "userId"
+        
+scenarios:
+  - flow:
+    - log: "{{ name }}"  
+    - post:
+        url: "/api/authenticate"
+        formData:
+            identifier: "mmuster"
+            password: "test"
+    - post:
+        url: "/api/equipment"
+        headers:
+            Content-Type: "application/json"
+        json:
+            name: "{{ name }}"
+            accuracy: "{{ accuracy }}"
+            calibrationDate: "{{ calibrationDate }}"
+            createDate:  "{{ createDate }}"
+            description: "{{ description }}"
+            interval:   "{{ interval }}"
+            location:  "{{ location }}"
+            manufacturer: "{{ manufacturer }}"
+            modifyDate: "{{ modifyDate }}"
+            number: "{{ number }}"
+            type: "{{ type }}"
+            userId: "{{ userId }}"
